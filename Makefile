@@ -41,7 +41,6 @@ before-package::
 	@cp -R Tweaks/YouQuality/layout/Library/Application\ Support/YouQuality.bundle Resources/
 	@cp -R Tweaks/YouTimeStamp/layout/Library/Application\ Support/YouTimeStamp.bundle Resources/
 	@echo -e "==> \033[1mChanging the installation path of dylibs...\033[0m"
-	@ldid -r .theos/obj/iSponsorBlock.dylib && install_name_tool -change /usr/lib/libcolorpicker.dylib @rpath/libcolorpicker.dylib .theos/obj/iSponsorBlock.dylib
 	@codesign --remove-signature .theos/obj/libcolorpicker.dylib && install_name_tool -change /Library/Frameworks/Alderis.framework/Alderis @rpath/Alderis.framework/Alderis .theos/obj/libcolorpicker.dylib
 
 internal-clean::
